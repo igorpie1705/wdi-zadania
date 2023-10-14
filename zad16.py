@@ -5,3 +5,5 @@
 # ciąg ten osiąga wartość 1. Proszę napisać program,
 # który znajdzie wyraz początkowy z przedziału 2-10000
 # dla którego wartość 1 jest osiągalna po największej liczbie kroków
+
+# CHUJ KURWA NIE UMIEM GOWNO PIERDOLONE
