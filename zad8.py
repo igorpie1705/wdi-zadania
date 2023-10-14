@@ -1,5 +1,5 @@
 # Zadanie 8
-# Proszę napisać program sprawdzający czy zadana liczba jest pierwszą.
+# Proszę napisać program sprawdzający, czy zadana liczba jest pierwszą.
 
 def pierwsza(n):
     if n < 2:

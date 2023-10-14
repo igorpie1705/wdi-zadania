@@ -3,15 +3,16 @@
 
 def podzielniki(n):
     tab = []
-    for i in range(2, n):
+    for i in range(2, int(n**0.5) + 1):
         while n % i == 0:
             tab.append(i)
+            tab.append(n//i)
             n //= i
     if len(tab) == 0:
         tab = [1, n]
     return tab
 
 
-print(podzielniki(32489423))
+print(podzielniki(234325))
 
 
