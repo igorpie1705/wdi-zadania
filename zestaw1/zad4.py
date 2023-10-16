@@ -17,3 +17,4 @@ def algorytm(n):
 
 
 algorytm(625)
+
