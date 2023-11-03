@@ -10,3 +10,5 @@ t = [4, 3, 6, 1, 9, 5, 3, 6, 13, 35]
 def algorytm(tab):
     for n in range(len(tab)-1):
         pass
+
+

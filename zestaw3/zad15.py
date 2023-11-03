@@ -6,6 +6,7 @@
 # a wśród pozostałych przynajmniej jedna jest liczbą pierwszą”
 
 from math import sqrt
+from random import randint
 
 
 def czy_pierwsza(n):
@@ -18,4 +19,35 @@ def czy_pierwsza(n):
 
 
 def algorytm(t):
-    pass
+    print(t)
+    dlugosc = len(t)
+    fib = [0]
+    a, b = 0, 1
+    j = 0
+    pierwsza = False
+    zlozone = True
+    while b < dlugosc:
+        fib.append(b)
+        a, b = b, a + b
+    print(fib)
+    for wyraz_ciagu in fib:
+        for i in range(j, wyraz_ciagu):
+            if czy_pierwsza(tab[i]):
+                pierwsza = True
+        if czy_pierwsza(tab[wyraz_ciagu]) is True:
+            zlozone = False
+            print("NIE")
+            return 0
+        j = wyraz_ciagu + 1
+    if pierwsza is False:
+        print("NIE")
+        return 0
+    print("TAK")
+
+
+tab = []
+
+for i in range(50):
+    tab.append(randint(1, 100))
+
+algorytm(tab)

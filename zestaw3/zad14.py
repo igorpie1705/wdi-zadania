@@ -6,3 +6,4 @@
 # Wyznaczyć wartości prawdopodobieństwa dla N z zakresu 20-40.
 
 def algorytm(n):
+    pass
