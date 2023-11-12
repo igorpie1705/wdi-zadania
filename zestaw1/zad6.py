@@ -22,5 +22,4 @@ def algorytm():
 
 print(algorytm())
 
-print(pow(4.8316, 4.8316))
 

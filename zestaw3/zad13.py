@@ -28,5 +28,5 @@ def algorytm(t):
     print(max_licznik)
 
 
-algorytm(100)
+algorytm(1000)
 
