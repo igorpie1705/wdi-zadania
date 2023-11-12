@@ -9,6 +9,7 @@
 
 from random import randint
 
+
 def funkcja(t):
     maks = 0
     licznik = 1
