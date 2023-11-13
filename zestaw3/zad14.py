@@ -6,4 +6,10 @@
 # Wyznaczyć wartości prawdopodobieństwa dla N z zakresu 20-40.
 
 def algorytm(n):
-    pass
+    if n >= 730:
+        return 100
+    return round((n/730) * 100, 2)
+
+
+for i in range(20, 40):
+    print(str(algorytm(i)) + "%")
