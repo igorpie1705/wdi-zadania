@@ -16,92 +16,44 @@ for i in tab:
     print(i)
 
 
-def sprawdz(*args):
-    chuj = len(args)
-    pizda = 1
-    for x in range(1, chuj):
-        if args[x] == args[x-1]:
-            pizda += 1
-    if pizda == chuj:
-        return True
-    return False
-
-
-def r(a):
-    skladane = set()
-    n = int(log10(a))+1
-    for i in range(n):
-        skladane.add(a % 10)
+def are_friends(a, b):
+    T = [0 for _ in range(10)]
+    n = len(T)
+    while a >= 1:
+        num = a % 10
+        T[num] = 1
         a //= 10
-    return skladane
-
-def algorytm(t):
-    licznik = 0
-    n = len(t) - 1
-    for x in range(len(t)):
-        for y in range(len(t)):
-            try:
-                l = t[x][y-1]
-            except IndexError:
-                pass
-            try:
-                ld = t[x+1][y-1]
-            except IndexError:
-                pass
-            try:
-                d = t[x+1][y]
-            except IndexError:
-                pass
-            try:
-                pd = t[x+1][y+1]
-            except IndexError:
-                pass
-            try:
-                p = t[x][y+1]
-            except IndexError:
-                pass
-            try:
-                pg = t[x-1][y+1]
-            except IndexError:
-                pass
-            try:
-                g = t[x-1][y]
-            except IndexError:
-                pass
-            try:
-                lg = t[x-1][y-1]
-            except IndexError:
-                pass
-            s = tab[x][y]
-            if x == 0 or y == 0 or y == n or x == n:
-                if x == 0 and 0 < y < n:
-                    if sprawdz(r(s), r(l), r(ld), r(d), r(pd), r(p)) is True:
-                        licznik += 1
-                elif x == 0 and y == 0:
-                    if sprawdz(r(s), r(d), r(pd), r(p)) is True:
-                        licznik += 1
-                elif x == 0 and y == n:
-                    if sprawdz(r(s), r(l), r(ld), r(d)) is True:
-                        licznik += 1
-                elif x == n and y == 0:
-                    if sprawdz(r(s), r(p), r(pg), r(g)) is True:
-                        licznik += 1
-                elif x == n and y == n:
-                    if sprawdz(r(s), r(l), r(g), r(lg)) is True:
-                        licznik += 1
-                elif x == n and 0 < y < n:
-                    if sprawdz(r(s), r(l), r(p), r(pg), r(g), r(lg)) is True:
-                        licznik += 1
-                elif y == 0 and 0 < x < n:
-                    if sprawdz(r(s), r(d), r(pd), r(p), r(pg), r(g)) is True:
-                        licznik += 1
-                elif y == n and 0 < x < n:
-                    if sprawdz(r(s), r(l), r(ld), r(d), r(g), r(lg)) is True:
-                        licznik += 1
-            else:
-                if sprawdz(r(s), r(l), r(ld), r(d), r(pd), r(p), r(pg), r(g), r(lg)) is True:
-                    licznik += 1
-    print(licznik)
+    while b >= 1:
+        num = b % 10
+        if T[num] != 0:
+            T[num] = 2
+        else:
+            return False
+        b //= 10
+    for i in range(n):
+        if T[i] == 1:
+            return False
+    return True
 
 
-algorytm(tab)
+def side(T, i, j):
+    n = len(T)
+    sides = [(-1, 0), (-1, -1), (-1, 1), (1, -1), (1, 0), (1, 1), (0, -1), (0, 1)]
+    for k in sides:
+        if 0 <= i + k[0] < n and 0 <= j + k[1] < n:
+            if not are_friends(T[i][j], T[i + k[0]][j + k[1]]):
+                return False
+    return True
+
+
+def zad11(T):
+    n = len(T)
+    cnt = 0
+    for i in range(n):
+        for j in range(n):
+            if side(T, i, j):
+                cnt += 1
+        return cnt
+
+
+print(zad11(tab))
