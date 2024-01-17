@@ -25,6 +25,7 @@ def zad17(num1, num2):
     n = len(num1) + len(num2)
 
     def rek(i, a, b, c):
+        print(c)
         nonlocal cnt
         if i == n:
             print(c)
@@ -41,4 +42,4 @@ def zad17(num1, num2):
     return rek(0, num1, num2, '')
 
 
-print(zad17(124, 751))
+print(zad17(123, 75))

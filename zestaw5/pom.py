@@ -12,10 +12,8 @@ T = [
 ]
 new_t = []
 
-for m in range(len(T)):
-    for i in range(1, len(T)):
-        if m == len(T):
-            new_t += [T[i][:m]]
-        else:
-            new_t += [T[i][:m] + T[i][m + 1:]]
 
+new_t += [2]
+new_t += [54]
+
+print(new_t)
