@@ -5,6 +5,7 @@
 
 def dziel(a, b):
     liczba = str(a / b)
+    return liczba
 
 
-print(dziel(1, 7))
+print(dziel(1, 3))
